@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/wine-library/static/css/main.c1cea3fd.chunk.css",
-    "main.js": "/wine-library/static/js/main.f4104c83.chunk.js",
-    "main.js.map": "/wine-library/static/js/main.f4104c83.chunk.js.map",
+    "main.js": "/wine-library/static/js/main.e18dc40c.chunk.js",
+    "main.js.map": "/wine-library/static/js/main.e18dc40c.chunk.js.map",
     "runtime-main.js": "/wine-library/static/js/runtime-main.f932d3e6.js",
     "runtime-main.js.map": "/wine-library/static/js/runtime-main.f932d3e6.js.map",
     "static/css/2.70cd330b.chunk.css": "/wine-library/static/css/2.70cd330b.chunk.css",
-    "static/js/2.7dc46368.chunk.js": "/wine-library/static/js/2.7dc46368.chunk.js",
-    "static/js/2.7dc46368.chunk.js.map": "/wine-library/static/js/2.7dc46368.chunk.js.map",
+    "static/js/2.87b972e4.chunk.js": "/wine-library/static/js/2.87b972e4.chunk.js",
+    "static/js/2.87b972e4.chunk.js.map": "/wine-library/static/js/2.87b972e4.chunk.js.map",
     "index.html": "/wine-library/index.html",
     "static/css/2.70cd330b.chunk.css.map": "/wine-library/static/css/2.70cd330b.chunk.css.map",
     "static/css/main.c1cea3fd.chunk.css.map": "/wine-library/static/css/main.c1cea3fd.chunk.css.map",
-    "static/js/2.7dc46368.chunk.js.LICENSE.txt": "/wine-library/static/js/2.7dc46368.chunk.js.LICENSE.txt",
+    "static/js/2.87b972e4.chunk.js.LICENSE.txt": "/wine-library/static/js/2.87b972e4.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/wine-library/static/media/OpenSans_SemiCondensed-SemiBoldItalic.4cb301d9.ttf",
     "static/media/slick-theme.css": "/wine-library/static/media/slick.c94f7671.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.f932d3e6.js",
     "static/css/2.70cd330b.chunk.css",
-    "static/js/2.7dc46368.chunk.js",
+    "static/js/2.87b972e4.chunk.js",
     "static/css/main.c1cea3fd.chunk.css",
-    "static/js/main.f4104c83.chunk.js"
+    "static/js/main.e18dc40c.chunk.js"
   ]
 }
