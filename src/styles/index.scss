@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "Mont";
+  src: local("Mont"),
+    url("../fonts/OpenSans_SemiCondensed-Bold.ttf") format("opentype") tech(color-colrv1),
+    url("../fonts/OpenSans_SemiCondensed-BoldItalic.ttf") format("opentype"),
+    url("../fonts/OpenSans_SemiCondensed-ExtraBold.ttf") format("opentype"),
+    url("../fonts/OpenSans_SemiCondensed-ExtraBoldItalic.ttf") format("opentype"),
+    url("../fonts/OpenSans_SemiCondensed-Italic.ttf") format("opentype"),
+    url("../fonts/OpenSans_SemiCondensed-Light.ttf") format("opentype"),
+    url("../fonts/OpenSans_SemiCondensed-LightItalic.ttf") format("opentype"),
+    url("../fonts/OpenSans_SemiCondensed-Medium.ttf") format("opentype"),
+    url("../fonts/OpenSans_SemiCondensed-MediumItalic.ttf") format("opentype"),
+    url("../fonts/OpenSans_SemiCondensed-Regular.ttf") format("opentype"),
+    url("../fonts/OpenSans_SemiCondensed-SemiBold.ttf") format("opentype"),
+    url("../fonts/OpenSans_SemiCondensed-SemiBoldItalic.ttf") format("opentype"),
+    url("../fonts/OpenSans_SemiCondensed-ExtraBold.ttf") format("opentype"),
+    url("../fonts/OpenSans_SemiCondensed-ExtraBoldItalic.ttf") format("opentype"),
+    url("../fonts/OpenSans_SemiCondensed-Italic.ttf") format("opentype"),
+    url("../fonts/Merriweather-Light.ttf") format("opentype");
+} 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  color: var(--text);
+  // transition: 0.3s;
+}
+
+.App {
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
+}
+
+body {
+  background: var(--bg);
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 75px;
+}
+
+

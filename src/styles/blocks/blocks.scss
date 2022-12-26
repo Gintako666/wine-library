@@ -1,0 +1,35 @@
+@import './header';
+@import './logIn';
+@import './verticalSlider';
+@import './cart';
+@import './slider';
+@import './footer';
+@import './priceSlider';
+
+.price {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 22px;
+  color: var(--title);
+}
+
+.check-box {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--placeholder);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--active {
+    border: 1px solid var(--elements);
+  }
+
+  &--active::before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 10px;
+    background: url('../../img/checkbox.svg');
+  }
+}

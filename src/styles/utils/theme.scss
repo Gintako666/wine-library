@@ -1,0 +1,19 @@
+html[data-theme="light"] {
+  --text: #fff;
+  --paragraph: #d6d6d6;
+  --title: #c8ae8e;
+  --elements: #bf9a6d;
+  --bg: #111015;
+  --items: #080705;
+  --buttonBg: linear-gradient(274.44deg, #ad2b34 55.58%, #572226 98.13%);
+  --placeholder: #787878;
+  --logInBg: #292B2A;
+  --white: #fff;
+}
+
+html[data-theme = "dark"] {
+  --text: #fff;
+  --elements: #fff;
+  --bg: #000;
+
+}

@@ -1,0 +1,45 @@
+.slick {
+
+  &-slider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-list {
+    width: calc(100% - 144px);
+  }
+
+  &-track {
+    // display: flex;
+    // overflow: hidden;
+
+    width: 100%;
+  }
+
+  &-next, &-prev {
+    position: static;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: none;
+    border: 1px solid var(--elements);
+    transform: translate(0, 0);
+
+    &::before {
+      transition: 0.3s;
+      content: "";
+      width: 45px;
+      height: 14px;
+      margin: 0 auto;
+      display: block;
+      background: url('../../img/arrow.png');
+    }
+  }
+
+  &-prev {
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+}
