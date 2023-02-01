@@ -1,10 +1,13 @@
 /* eslint-disable no-console */
 import classNames from 'classnames';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { actions as selectedProductActions } from '../../features/store/selectProduct';
+import { useAppDispatch } from '../../hooks/reduxHooks';
+import { ProductWine } from '../../types/ProductWine';
 
 interface VerticalSliderProps {
-  items: any[];
+  items: ProductWine[];
   botSlider?: boolean;
 }
 
@@ -26,24 +29,37 @@ export const VerticalSlider: React.FunctionComponent<VerticalSliderProps> = ({
   items,
   botSlider,
 }) => {
+  const location = useLocation().pathname;
+  const dispatch = useAppDispatch();
   const [selectItem, setselectItem] = useState(0);
 
   return (
     <div className="slider-vertical">
-      <div className="slider-vertical__blur"></div>
+      <div className="slider-vertical__blur" style={{ transform: botSlider ? 'translateX(250px)' : '' }}></div>
       <div className="slider-vertical__list">
         <div className="slider-vertical__track" style={{ transform: `translateY(-${selectItem * 480}px)` }}>
           {items.map(item => {
             return (
-              <div
+              <Link
                 key={item.id}
                 className="slider-vertical__item"
-                style={{ backgroundImage: `url(${item.img})` }}
+                // style={{ backgroundImage: `url(img/${item.id}.png)` }}
+                to={`${location.length > 1 ? location : 'catalog'}/${item.name.split(' ').join('+')}`}
+                onClick={() => {
+                  dispatch(selectedProductActions.set(item));
+                  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                }}
               >
-              </div>
-
-            // <img src={item.img} alt={item.name} key={item.id}
-            // className="slider-vertical__item" />
+                <img
+                  src={`img/${item.id}.png`}
+                  alt=""
+                  className={classNames(
+                    'slider-vertical__item',
+                    { 'slider-vertical__item--bot': botSlider },
+                  )}
+                />
+                {botSlider && <img src={`./img/dop${item.id}.png`} alt="" className="slider-vertical__item__dop" />}
+              </Link>
             );
           })}
         </div>
@@ -55,11 +71,13 @@ export const VerticalSlider: React.FunctionComponent<VerticalSliderProps> = ({
           onClick={() => {
             if (selectItem > 0) {
               setselectItem(prev => prev - 1);
+            } else {
+              setselectItem(items.length - 1);
             }
           }}
         >
           <svg width="6" height="39" viewBox="0 0 6 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 0L0.113249 5L5.88675 5L3 0ZM2.5 4.5L2.5 39L3.5 39L3.5 4.5L2.5 4.5Z" fill="#C7C7C7" />
+            <path className="slider-vertical__arrow" d="M3 0L0.113249 5L5.88675 5L3 0ZM2.5 4.5L2.5 39L3.5 39L3.5 4.5L2.5 4.5Z" />
           </svg>
         </button>
         <ul className="slider-vertical__dots">
@@ -89,11 +107,13 @@ export const VerticalSlider: React.FunctionComponent<VerticalSliderProps> = ({
           onClick={() => {
             if (selectItem < items.length - 1) {
               setselectItem(prev => prev + 1);
+            } else {
+              setselectItem(0);
             }
           }}
         >
           <svg width="6" height="39" viewBox="0 0 6 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.00732 39L5.89313 33.9995L0.119629 34.0005L3.00732 39ZM2.5 9.38264e-05L2.50647 34.5001L3.50647 34.4999L3.5 -9.38264e-05L2.5 9.38264e-05Z" fill="#C7C7C7" />
+            <path className="slider-vertical__arrow" d="M3.00732 39L5.89313 33.9995L0.119629 34.0005L3.00732 39ZM2.5 9.38264e-05L2.50647 34.5001L3.50647 34.4999L3.5 -9.38264e-05L2.5 9.38264e-05Z" fill="#C7C7C7" />
           </svg>
 
         </button>
@@ -114,26 +134,30 @@ export const VerticalSlider: React.FunctionComponent<VerticalSliderProps> = ({
         <p className="slider-vertical__info__text">
           {items[selectItem].name}
           {' — '}
-          {items[selectItem].info}
+          {items[selectItem].description}
         </p>
-        <Link to="/" className="slider-vertical__info__button">
+        <Link to={`/catalog/${items[selectItem].name.split(' ').join('+')}`} className="slider-vertical__info__button">
           Детальніше
         </Link>
         <div className="price">
           {items[selectItem].price}
+          {' '}
+          ₴
         </div>
         {botSlider
           ? (
             <>
-              <div className="slider-vertical__info__botSlider">
-                <p className="slider-vertical__info__botSlider__item">
+              <div className="slider-vertical__info__bot-slider">
+                <p className="slider-vertical__info__bot-slider__item">
                   {items[selectItem].year}
                 </p>
-                <p className="slider-vertical__info__botSlider__item">
-                  {items[selectItem].country}
+                <div className="slider-vertical__info__bot-slider__line"></div>
+                <p className="slider-vertical__info__bot-slider__item">
+                  {items[selectItem].country.name}
                 </p>
-                <p className="slider-vertical__info__botSlider__item">
-                  {items[selectItem].type}
+                <div className="slider-vertical__info__bot-slider__line"></div>
+                <p className="slider-vertical__info__bot-slider__item">
+                  {items[selectItem].sweetness.name}
                 </p>
               </div>
               <div className="slider-vertical__info__bot-line">

@@ -34,9 +34,15 @@ export function getSearchWith(
         // we delete the key to remove old values
         newParams.delete(key);
 
-        value.forEach(part => {
-          newParams.append(key, part);
-        });
+        if (value.length === 0) {
+          return;
+        }
+
+        newParams.append(key, value.join('*'));
+
+        // value.forEach(part => {
+        //   newParams.append(key, part);
+        // });
       } else {
         newParams.set(key, value);
       }

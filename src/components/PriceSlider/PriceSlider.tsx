@@ -26,7 +26,13 @@ const PriseClider: React.FunctionComponent<PriceSliderProps> = ({
   return (
     <>
       <div className="price-slider">
-        <div className="slider-progres" style={{ left: `${minVal}%`, right: `${maxVal}%` }}></div>
+        <div
+          className="slider-progres"
+          style={start > end
+            ? { right: `${100 - minVal}%`, left: `${100 - maxVal}%` }
+            : { left: `${minVal}%`, right: `${maxVal}%` }}
+        >
+        </div>
         <div className="slider-input">
           <input
             type="range"
@@ -38,8 +44,9 @@ const PriseClider: React.FunctionComponent<PriceSliderProps> = ({
             max={max}
             step={200}
             onMouseUp={() => {
-              if (start + 1000 > end) {
-                setstart(end - 1000);
+              if (start > end) {
+                setstart(end);
+                setend(start);
               }
             }}
           />
@@ -49,10 +56,6 @@ const PriseClider: React.FunctionComponent<PriceSliderProps> = ({
             type="range"
             value={end}
             onChange={(e) => {
-              // if (start + 500 > end) {
-              //   setstart(+e.target.value);
-              // } else {
-              //   console.log(e.target.value);
               setend(+e.target.value);
               // }
             }}
@@ -60,8 +63,9 @@ const PriseClider: React.FunctionComponent<PriceSliderProps> = ({
             min={min}
             max={max}
             onMouseUp={() => {
-              if (start > end - 1000) {
-                setend(start + 1000);
+              if (start > end) {
+                setstart(end);
+                setend(start);
               }
             }}
           />

@@ -1,0 +1,39 @@
+.warning-modal {
+  position: fixed;
+  border-radius: 20px;
+  border: solid 2px white;
+  z-index: 100;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 64px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--elements);
+
+  animation-name: bordModal;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+
+  &__close {
+    padding: 8px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+
+
+}
+
+@keyframes bordModal {
+  0% {
+    transform: translate(-50%, 100%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}

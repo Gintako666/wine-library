@@ -1,4 +1,5 @@
 .home {
+  margin-top: 70px;
 
   &__info {
     display: flex;
@@ -29,6 +30,12 @@
       line-height: 27px;
       height: 48px;
       background: var(--buttonBg);
+
+      transition: 0.3s;
+
+      &:hover {
+        box-shadow: 0px 0px 50px var(--red);
+      }
     }
   }
 
@@ -39,6 +46,7 @@
   }
 
   &__interesting {
+    margin-top: 150px;
     padding: 100px 0 106px;
     background: url('../../img/Background.jpg') no-repeat;
     background-size: cover;
@@ -61,9 +69,18 @@
     }
 
     &__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: var(--buttonBg);
       width: 238px;
       height: 48px;
+      font-size: 20px;
+      transition: 0.3s;
+
+      &:hover {
+        box-shadow: 0px 0px 50px var(--red);
+      }
     }
   }
 

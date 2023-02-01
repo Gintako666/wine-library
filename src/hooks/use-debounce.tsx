@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
-import { clearTimeout } from 'timers';
 
 export const useDebounce = (value: any, delay: number) => {
   const [debounceValue, setdebounceValue] = useState(value);

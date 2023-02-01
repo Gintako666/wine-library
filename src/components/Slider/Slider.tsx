@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import SlickSlider from 'react-slick';
-import Card from '../Card/Card';
+import { Card } from '../Card';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

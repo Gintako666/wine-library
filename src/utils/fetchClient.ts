@@ -1,4 +1,7 @@
-const BASE_URL = 'http://winelibraryapp-env.eba-4ybrh5hi.eu-west-1.elasticbeanstalk.com';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-console */
+const BASE_URL = 'http://winelibrary-env.eba-vbamhmxv.eu-west-1.elasticbeanstalk.com';
+// 'http://winelibrary-env-1.eba-h5tcvqpg.eu-west-1.elasticbeanstalk.com'
 
 // returns a promise resolved after a given delay
 function wait(delay: number) {
@@ -8,7 +11,7 @@ function wait(delay: number) {
 }
 
 // To have autocompletion and avoid mistypes
-type RequestMethod = 'GET' | 'POST' | 'PATCH' | 'DELETE';
+type RequestMethod = 'GET' | 'POST' | 'PATCH' | 'DELETE' | 'PUT';
 
 function request<T>(
   url: string,
@@ -30,6 +33,7 @@ function request<T>(
     .then(() => fetch(BASE_URL + url, options))
     .then(response => {
       if (!response.ok) {
+        console.log(response);
         throw new Error();
       }
 
@@ -41,5 +45,6 @@ export const client = {
   get: <T>(url: string) => request<T>(url),
   post: <T>(url: string, data: unknown) => request<T>(url, 'POST', data),
   patch: <T>(url: string, data: unknown) => request<T>(url, 'PATCH', data),
+  put: <T>(url: string, data: unknown) => request<T>(url, 'PUT', data),
   delete: (url: string) => request(url, 'DELETE'),
 };

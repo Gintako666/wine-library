@@ -7,7 +7,7 @@ header {
   justify-content: space-between;
   align-items: center;  
   flex-wrap: wrap;
-  padding: 36px 0 100px;
+  padding: 36px 0 24px;
 
 
   &__user {
@@ -15,13 +15,60 @@ header {
     align-items: center;
     gap: 32px;
 
+    &__li {
+      width: 23px;
+      height: 23px;
+      position: relative;
+
+      & a {
+        position: absolute;
+        // transform: translate(-50%, -50%);
+        z-index: 2;
+      }
+        
+    }
+
+    &__input {
+      right: -12px;
+      top: 50%;
+      // width: 353px;
+      transform: translateY(-50%);
+      height: 40px;
+      position: absolute;
+      border: 1px solid var(--text);
+      z-index: 1;
+      padding-left: 16px;
+      outline: none;
+    }
+
     &__text {
       font-weight: 300;
       font-size: 16px;
       line-height: 22px;
     }
   }
+
+  &__button {
+    position: relative;
+  }
+
+  &__cart-counter {
+    font-weight: 400;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -15px;
+    right: -10px;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--redButton);
+  }
+
   &__nav {
+    padding-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,6 +82,26 @@ header {
       font-weight: 300;
       font-size: 20px;
       line-height: 27px;
+
+      &::after {
+        content: "";
+        display: block;
+        transform: translateX(-25%);
+        margin-top: 10px;
+        width: 150%;
+        height: 1px;
+
+      }
+
+      &--active {
+        color: var(--elements);
+        transition: 0.3s;
+        
+        &::after {
+          background: linear-gradient(90deg, rgba(200, 174, 142, 0) 16.22%, #C8AE8E 56.36%, rgba(200, 174, 142, 0) 100%);
+
+        }
+      }
     }
 
     // &__link--registration::before {

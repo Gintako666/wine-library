@@ -5,6 +5,17 @@
   justify-content: space-between;
   position: relative;
 
+  &__button {
+    &:hover .slider-vertical__arrow {
+      fill: var(--elements);
+    }
+  }
+
+  &__arrow {
+    fill: #C7C7C7;
+    transition: 0.3s;
+  }
+
   &__list {
     overflow: hidden;
     max-height: 480px;
@@ -65,15 +76,28 @@
     display: flex;
     flex-direction: column;
     transition: 0.7s;
-    z-index: 10000;
-    // display: none;
   }
 
   &__item {
     height: 480px;
-    min-width: 160px;
-    background-size: cover;
-    background-position: center;
+    margin: 0 auto;
+    position: relative;
+
+    transition: 0.3s;
+
+    &--bot {
+      margin: 0 125px;
+    }
+
+    &:hover {
+      transform: scale(1.01);
+    }
+
+    &__dop {
+      position: absolute;
+      bottom: 0px;
+      right: -30px;
+    }
     
   }
 
@@ -101,32 +125,24 @@
       background: #fff;
     }
 
-    &__botSlider {
+    &__bot-slider {
       display: flex;
       padding: 0 67px 0 0;
       justify-content: space-between;
+
+      &__line {
+        display: block;
+        height: 1px;
+        width: 50px;
+        background: linear-gradient(90deg, rgba(200, 174, 142, 0) 16.22%, #C8AE8E 56.36%, rgba(200, 174, 142, 0) 100%);
+        transform: rotate(90deg) translate(10px);
+      }
 
       &__item {
         font-weight: 300;
         font-size: 20px;
         line-height: 27px;
         position: relative;
-
-        &::before {
-          position: absolute;
-          top: 50%;
-          left: -50px;
-          content: "";
-          display: block;
-          width: 50px;
-          height: 1px;
-          background: linear-gradient(90deg, rgba(200, 174, 142, 0) 16.22%, #C8AE8E 56.36%, rgba(200, 174, 142, 0) 100%);
-          transform: rotate(90deg) translate(-5px);
-        }
-
-        &:first-child::before {
-          content: none;
-        }
       }
 
     }
@@ -165,6 +181,12 @@
       transform: rotate(90deg);
       bottom: 25px;
       right: -52px;
+    }
+  }
+
+  &__contacts {
+    &__tell {
+      color: var(--elements);
     }
   }
 }

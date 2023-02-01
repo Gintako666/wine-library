@@ -1,12 +1,15 @@
 /* eslint-disable no-console */
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { GlobalContext } from '../../components/GlobalContext';
 import { VerticalSlider } from '../../components/VerticalSlider';
 import Slider from '../../components/Slider/Slider';
+import { useAppSelector } from '../../hooks/reduxHooks';
+import Loader from '../../components/Loader/Loader';
+import ServerError from '../ServerError/ServerError';
 
 const Home: React.FunctionComponent = () => {
-  const { products } = useContext(GlobalContext);
+  const { error } = useAppSelector((state) => state.products);
+  const { products } = useAppSelector((state) => state.productsSlider);
 
   const settingsSlider = {
     dots: false,
@@ -16,7 +19,7 @@ const Home: React.FunctionComponent = () => {
     slidesToScroll: 1,
   };
 
-  return (
+  return products.length > 0 ? (
     <>
       <div className="container home">
         <section className="home__info">
@@ -32,12 +35,12 @@ const Home: React.FunctionComponent = () => {
               Перейти до каталогу
             </Link>
           </article>
-          <VerticalSlider items={products} />
+          <VerticalSlider items={products.slice(0, 6)} />
         </section>
         <section className="home__hit">
           <h1 className="home__title">ХІТИ ПРОДАЖ</h1>
           <Slider
-            products={products}
+            products={products.slice(0, 12)}
             settingsSlider={settingsSlider}
           />
         </section>
@@ -45,7 +48,7 @@ const Home: React.FunctionComponent = () => {
           <h1 className="home__info__title">
             ГАРЯЧІ НОВИНКИ
           </h1>
-          <VerticalSlider items={products} botSlider />
+          <VerticalSlider items={products.slice(0, 6)} botSlider />
         </section>
       </div>
       <section className="home__interesting">
@@ -57,14 +60,14 @@ const Home: React.FunctionComponent = () => {
           <p className="home__interesting__text">
             Допоможемо зробити Ваш вечір ідеальним
             та підберемо найкраще поєднання вина з
-            будь-якимии стравами.
+            будь-якими стравами.
           </p>
 
-          <button type="button" className="home__interesting__button">Підібрати</button>
+          <Link to="gastrosommelier" className="home__interesting__button">Підібрати</Link>
         </div>
       </section>
     </>
-  );
+  ) : ((error && <ServerError />) || (<Loader />));
 };
 
 export default Home;

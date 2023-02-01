@@ -138,6 +138,7 @@ input { /* 1 */
   overflow: visible;
   background: none;
   border: none;
+  position: relative;
 }
 
 

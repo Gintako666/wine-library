@@ -1,5 +1,6 @@
 footer {
-  margin-top: auto;
+  // margin-top: 100px;
+  background: var(--items);
 }
 
 .footer {
@@ -7,7 +8,7 @@ footer {
   grid-template-columns: auto 250px 500px;
   justify-content: space-between;
 
-  padding: 120px 0 100px;
+  padding: 60px 0 100px;
 
   &__logo {
     display: flex;
@@ -20,12 +21,34 @@ footer {
     font-size: 18px;
     line-height: 25px;
     color: var(--text);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &__tell {
+      position: relative;
+      color: var(--elements);
       margin-top: 50px;
       display: flex;
       align-items: center;
       gap: 10px;
+
+      &::after {
+        top: 140%;
+        position: absolute;
+        content: "";
+        display: block;
+        width: 75%;
+        height: 1px;
+        transition: 0.3s;
+        background: none;
+      }
+
+      &:hover {
+        &::after {
+          background: var(--elements);
+        }
+      }
     }
   }
 
@@ -50,6 +73,12 @@ footer {
       width: 90px;
       height: 42px;
       margin-left: 12px;
+
+      transition: 0.3s;
+
+      &:hover {
+        box-shadow: 0px 0px 50px var(--red);
+      }
     }
   }
 }

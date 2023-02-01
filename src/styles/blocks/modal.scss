@@ -1,0 +1,148 @@
+.modal {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  overflow-y: hidden;
+  animation-name: ShowModal;
+  animation-duration: .5s;
+  animation-timing-function: ease-in;
+
+  &--close {
+    animation-name: CloseModal;
+    animation-duration: .5s;
+    animation-timing-function: ease-in;
+  }
+
+  &__item {
+    position: absolute;
+    height: max-content;
+    padding: 24px 40px 36px;
+    width: 584px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--logInBg);
+
+    &__nav {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 70px;
+    }
+
+    &__link {
+      font-weight: 300;
+      font-size: 26px;
+      line-height: 60px;
+      color: var(--text);
+
+      &--active {
+        &::after {
+          content: "";
+          display: block;
+          width: 200%;
+          height: 1px;
+          background: linear-gradient(90deg, rgba(200, 174, 142, 0) 16.22%, #C8AE8E 56.36%, rgba(200, 174, 142, 0) 100%);
+          transform: translateX(-35%);
+        }
+      }
+    }
+
+    &__close {
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__input {
+    width: 100%;
+    height: 48px;
+    border: 0.3px solid var(--placeholder);
+    padding: 11px 20px;
+    outline: none;
+
+    &__access-svg {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &__wrapper {
+      position: relative;
+    }
+
+    &__show-password {
+      position: absolute;
+      // top: 24px;
+      right: 0;
+      transform: translate(-50%, -60%);
+    }
+
+    &__error {
+      margin-top: 10px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+      color: var(--placeholder)
+    }
+
+    &--error {
+      border: 0.3px solid red ;
+    }
+
+    &--access {
+      border: 0.3px solid rgba(23, 154, 138, 1);
+    }
+
+  }
+
+  &__button {
+    width: 100%;
+    height: 48px;
+    background: var(--buttonBg);
+
+    transition: 0.3s;
+
+      &:hover {
+        box-shadow: 0px 0px 50px var(--red);
+      }
+  }
+
+  &__forgot-password {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: var(--title);
+    margin-right: auto;
+  }
+}
+
+@keyframes ShowModal {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes CloseModal {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
